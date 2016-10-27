@@ -1,3 +1,16 @@
-.home {
-  color: red;
+md-select .md-select-value.md-select-placeholder {
+    color: #fff;
+}
+md-select:not([disabled]):focus .md-select-value {
+    border-bottom-color: rgb(63,81,181);
+    color: #fff;
+}
+md-select:not([disabled]):focus .md-select-value.md-select-placeholder {
+    color: #fff;
+}
+md-input-container.md-input-focused:not(.md-input-has-value) md-select .md-select-value.md-select-placeholder {
+    color: #ccc;
+}
+md-input-container:not(.md-input-invalid).md-input-has-value label {
+    color: #ccc;
 }

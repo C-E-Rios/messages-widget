@@ -1,6 +1,10 @@
-@import 'common/common';
+// @import 'common/common';
 
 .app {
   height: 100%;
-  background-color: $lightBgColor;
+  // background-color: $lightBgColor;
+}
+
+md-toolbar {
+    padding: 1em 0 0.5em;
 }

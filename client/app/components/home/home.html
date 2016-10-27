@@ -1,9 +1,48 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
-  </div>
+<main layout="column" layout-fill>
+
+    <md-toolbar class="md-primary md-hue-4">
+        <span flex></span>
+        <div class="md-toolbar-tools" layout-align="center center">
+            <div class="md-toolbar-item">
+                <md-input-container class="md-accent">
+                    <label>Sender: </label>
+                    <md-select ng-model="$ctrl.filter.sender_id" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
+                        <md-option ng-value="invitation['sender_id']" ng-repeat="invitation in $ctrl.invitations | unique: 'sender_id'">{{invitation.sender_id}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="md-toolbar-item">
+                <md-input-container class="md-accent">
+                    <label>Vector: </label>
+                    <md-select ng-model="$ctrl.filter.vector" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
+                        <md-option ng-value="invitation['vector']" ng-repeat="invitation in $ctrl.invitations | unique: 'vector'">{{invitation.vector}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div class="md-toolbar-item">
+                <md-input-container class="md-accent" >
+                    <label>Status: </label>
+                    <md-select ng-model="$ctrl.filter.status" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
+                        <md-option ng-value="invitation['status']" ng-repeat="invitation in $ctrl.invitations | unique: 'status'">{{invitation.status}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-content ng-if="!$ctrl.loading" flex class="md-padding" layout-xs="column" layout="row" layout-align="center">
+        <div layout="column" flex="55" flex-xs="100" flex-lg="40">
+            <invitation class="invitation-block" ng-repeat="invitation in $ctrl.invitations | orderBy: '-status' | multipleSearch: $ctrl.filter as items track by invitation.invite_id" invitation="invitation"></invitation>
+            <div ng-if="!items.length">
+                <no-results filter="$ctrl.filter"></no-results>
+            </div>
+        </div>
+    </md-content>
+
+    <md-content ng-if="$ctrl.loading" flex class="md-padding" layout-xs="column" layout="row" layout-align="center center">
+        <div>
+            <md-progress-circular class="md-accent" md-diameter="40"></md-progress-circular>
+        </div>
+    </md-content>
+
 </main>

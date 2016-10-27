@@ -1,20 +1,34 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import Common from './common/common';
-import Components from './components/components';
+
 import AppComponent from './app.component';
-import 'normalize.css';
+import Components from './components/components';
+import Filters from './filters/filters';
+import InvitationService from './app.service';
+
+import ngMaterial from 'angular-material';
+import ngMdIcons from 'angular-material-icons';
+import 'angular-material/angular-material.css';
 
 angular.module('app', [
-    uiRouter,
-    Common,
-    Components
-  ])
-  .config(($locationProvider) => {
-    "ngInject";
-    // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
-    // #how-to-configure-your-server-to-work-with-html5mode
-    $locationProvider.html5Mode(true).hashPrefix('!');
-  })
+        ngMaterial,
+        ngMdIcons,
+        Components,
+        Filters
+    ])
 
-  .component('app', AppComponent);
+    .config(($locationProvider, $mdThemingProvider) => {
+        'ngInject';
+        // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
+        // #how-to-configure-your-server-to-work-with-html5mode
+        $locationProvider.html5Mode(true).hashPrefix('!');
+
+        // theme for ngMaterial
+        $mdThemingProvider.theme('default')
+          .primaryPalette('indigo')
+          .accentPalette('pink')
+          .warnPalette('cyan');
+    })
+
+    .service('invitationService', InvitationService)
+
+    .component('app', AppComponent);

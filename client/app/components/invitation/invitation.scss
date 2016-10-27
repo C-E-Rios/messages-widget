@@ -1,0 +1,39 @@
+.read {
+    background-color: #eee;
+}
+
+.issue-description {
+    background: #eee;
+    color: #c51162;
+}
+
+md-icon {
+    span {
+        display: block;
+        position: relative;
+        top: -2px;
+
+        text-align: center;
+        font-size: 1.5em;
+    }
+}
+
+md-card-avatar {
+    .vector-icon {
+        padding-left: 0.5em;
+        &.twitter {
+            fill: #1784c7;
+        }
+        &.internal {
+            fill: #c51162;
+        }
+        &.email {
+            fill: #546e7a;
+        }
+    }
+    .vector-text {
+        display: block;
+        text-align: center;
+        font-size: 10px;
+    }
+}
