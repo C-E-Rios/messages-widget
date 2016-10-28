@@ -2,14 +2,8 @@ class HomeController {
 
     constructor ($timeout, invitationService) {
         'ngInject';
-        this.name = 'home';
         this.$timeout = $timeout;
         this.invitationService = invitationService;
-        this.filter = {
-            sender_id: undefined,
-            sender: undefined,
-            vector: undefined
-        };
     }
 
     $onInit () {
@@ -22,11 +16,7 @@ class HomeController {
         .then(() => {
             return this.$timeout(() => {
                 this.updateInvitations();
-                this.filter = {
-                    sender_id: undefined,
-                    sender: undefined,
-                    vector: undefined
-                };
+                this.filter = {};
                 this.loading = false;
             }, 2000)
         });
@@ -55,6 +45,10 @@ class HomeController {
             }
         }
     }
+
+    strictFilter (expected, actual){
+      return actual.indexOf(expected) > -1;
+    };
 
 }
 

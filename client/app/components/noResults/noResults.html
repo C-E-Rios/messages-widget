@@ -3,15 +3,29 @@
         <md-card-title-text>
             <span class="md-headline">No results found</span>
             <span class="md-subhead">
-                <span>The terms</span>
-                <span class="search-terms" ng-if="item.length" ng-repeat="item in $ctrl.filter.sender_id track by $index"><span> {{item}}, </span></span>
-                <span class="search-terms" ng-if="item.length" ng-repeat="item in $ctrl.filter.vector track by $index"><span> {{item}}, </span></span>
-                <span class="search-terms" ng-if="item.length" ng-repeat="item in $ctrl.filter.status track by $index"><span> {{item}}, </span></span>
-                <span>did not return any results.</span>
+                <span>The following terms did not return any results:</span>
+                <div>
+                    <span ng-if="$ctrl.filter.sender_id.length">Sender:</span>
+                    <span class="search-terms" ng-repeat="item in $ctrl.filter.sender_id as sender track by $index">
+                        {{::item}}<span ng-if="!$last">, </span>
+                    </span>
+                </div>
+                <div>
+                    <span ng-if="$ctrl.filter.vector.length">Vector:</span>
+                    <span class="search-terms" ng-repeat="item in $ctrl.filter.vector track by $index">
+                        {{::item}}<span ng-if="!$last">, </span>
+                    </span>
+                </div>
+                <div>
+                    <span ng-if="$ctrl.filter.status.length">Status:</span>
+                    <span class="search-terms" ng-repeat="item in $ctrl.filter.status track by $index">
+                        {{::item}}<span ng-if="!$last">, </span>
+                    </span>
+                </div>
             </span>
         </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
-        <md-button ng-click="$ctrl.resetFilters()">Reset Filters</md-button>
+        <md-button ng-click="::$ctrl.resetFilter()">Reset Filters</md-button>
     </md-card-actions>
 </md-card>

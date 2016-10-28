@@ -1,5 +1,7 @@
+@import '../../app.variables';
+
 .search-terms {
     font-weight: bold;
     text-transform: capitalize;
-    color: #546e7a;
+    color: $offDark;
 }

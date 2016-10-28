@@ -1,4 +1,4 @@
-class Invitations {
+class InvitationsService {
 
     constructor ($http) {
         'ngInject';
@@ -35,4 +35,4 @@ class Invitations {
 
 }
 
-export default Invitations;
+export default InvitationsService;

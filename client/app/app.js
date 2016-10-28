@@ -1,13 +1,13 @@
 import angular from 'angular';
-
-import AppComponent from './app.component';
-import Components from './components/components';
-import Filters from './filters/filters';
-import InvitationService from './app.service';
-
 import ngMaterial from 'angular-material';
 import ngMdIcons from 'angular-material-icons';
 import 'angular-material/angular-material.css';
+
+import Components from './components/components';
+import Filters from './filters/filters';
+
+import InvitationService from './app.service';
+import AppComponent from './app.component';
 
 angular.module('app', [
         ngMaterial,

@@ -1,15 +1,16 @@
-# Moogsoft Technical Task
+## Moogsoft Technical Task
 
-[This repo was cloned from AngularClass NG6 Starter.](https://github.com/AngularClass/NG6-starter) The application was re-structured to more sense in this small-app context.
+[This repo was cloned from AngularClass NG6 Starter.](https://github.com/AngularClass/NG6-starter) The application was re-structured to make more sense in this small-app context.
 
-A compiled version of the app is provided in the dist folder. A server would need to be running in order to see a working version of the application. Using terminal you can CD into the dist folder and run `python -m SimpleHTTPServer`.  Once loaded the app will wait 10 seconds, before updating the list of results.
+A compiled version of the app is provided in the dist folder. A server would need to be running in order to see a working version of the application. Using terminal you can CD into the dist folder and run `python -m SimpleHTTPServer`.  Once loaded the app will wait 10 seconds, before updating the list of results as per the requirement.
 
 The project was put together using Angular 1.5 and the ES6 syntax laid out by AngularClass. [Angular Material](https://material.angularjs.org/latest/) was also used as a UI framework.
 
 The following resources were also used:
 
-  - [Angular-filter - Unique - 'unique.filter.js'](https://github.com/angular-ui/angular-ui-OLDREPO/blob/master/modules/filters/unique/unique.js)
-  - [Multiple search filter - 'multipleSearch.filter.js'](http://stackoverflow.com/questions/15868248/how-to-filter-multiple-values-or-operation-in-angularjs)
+  - [Angular-filter - Unique - 'unique.filter.js'](https://github.com/a8m/angular-filter/blob/master/src/_filter/collection/unique.js)
+
+## Compiling...
 
 ## Dependencies
 Tools needed to run this app:

@@ -3,9 +3,9 @@ export default function ($sce) {
     return function (text) {
 
         const expressions = {
-            brackets: /\[(.*?)\]/,
-            url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi,
-            newLine: /\\n/g
+            brackets: new RegExp(/\[(.*?)\]/),
+            url: new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi),
+            newLine: new RegExp(/\\n/g)
         };
 
         const issueDescription = text ? text.match(expressions.brackets) : '';

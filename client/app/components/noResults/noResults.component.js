@@ -8,7 +8,7 @@ let noResultsComponent = {
         filter: '<'
     },
     require: {
-        home: '^home'
+        home: '^^'
     },
     template,
     controller

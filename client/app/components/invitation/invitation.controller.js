@@ -1,8 +1,6 @@
 class InvitationController {
 
     constructor() {
-        'ngInject';
-        this.name = 'invitation';
     }
 
     $onInit () {

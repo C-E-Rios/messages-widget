@@ -7,7 +7,7 @@
                 <md-input-container class="md-accent">
                     <label>Sender: </label>
                     <md-select ng-model="$ctrl.filter.sender_id" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
-                        <md-option ng-value="invitation['sender_id']" ng-repeat="invitation in $ctrl.invitations | unique: 'sender_id'">{{invitation.sender_id}}</md-option>
+                        <md-option ng-value="invitation['sender_id']" ng-repeat="invitation in $ctrl.invitations | unique: 'sender_id' track by $index">{{::invitation.sender_id}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -15,7 +15,7 @@
                 <md-input-container class="md-accent">
                     <label>Vector: </label>
                     <md-select ng-model="$ctrl.filter.vector" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
-                        <md-option ng-value="invitation['vector']" ng-repeat="invitation in $ctrl.invitations | unique: 'vector'">{{invitation.vector}}</md-option>
+                        <md-option ng-value="invitation['vector']" ng-repeat="invitation in $ctrl.invitations | unique: 'vector' track by $index">{{::invitation.vector}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -23,7 +23,7 @@
                 <md-input-container class="md-accent" >
                     <label>Status: </label>
                     <md-select ng-model="$ctrl.filter.status" ng-change="$ctrl.onSelect($ctrl.filter)" multiple>
-                        <md-option ng-value="invitation['status']" ng-repeat="invitation in $ctrl.invitations | unique: 'status'">{{invitation.status}}</md-option>
+                        <md-option ng-value="invitation['status']" ng-repeat="invitation in $ctrl.invitations | unique: 'status' track by $index">{{::invitation.status}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -32,7 +32,7 @@
 
     <md-content ng-if="!$ctrl.loading" flex class="md-padding" layout-xs="column" layout="row" layout-align="center">
         <div layout="column" flex="55" flex-xs="100" flex-lg="40">
-            <invitation class="invitation-block" ng-repeat="invitation in $ctrl.invitations | orderBy: '-status' | multipleSearch: $ctrl.filter as items track by invitation.invite_id" invitation="invitation"></invitation>
+            <invitation class="invitation-block" ng-repeat="invitation in $ctrl.invitations | orderBy: '-status' | filter:$ctrl.filter:$ctrl.strictFilter as items track by invitation.invite_id" invitation="invitation"></invitation>
             <div ng-if="!items.length">
                 <no-results filter="$ctrl.filter"></no-results>
             </div>
